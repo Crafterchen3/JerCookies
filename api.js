@@ -19,11 +19,6 @@ buyAutoClickerButton.addEventListener('click', () => {
     autoClickerCount++;
     cookieCountDisplay.textContent = cookieCount + " Jers";
     autoClickerCountDisplay.textContent = autoClickerCount;
-    setInterval(() => {
-      cookieCount += autoClickerCount;
-      cookieCountDisplay.textContent = cookieCount + " Jers";
-      createRandomParticle();
-    }, 1000);
   } else {
     cookieButton.style.backgroundImage = "url(\"error.png\")"
     setTimeout(() => {
@@ -54,11 +49,21 @@ function createRandomParticle() {
   particle.style.top = y - container.getBoundingClientRect().top + 'px';
   particle.style.zIndex = 0
   particle.style.backgroundImage = "url(\"particle2.png\")"
+  particle.style.opacity = 0
   container.insertBefore(particle,document.getElementsByClassName("container")[0]);
   setTimeout(() => {
       container.removeChild(particle);
   }, 5000);
 }
+
+
+setInterval(() => {
+  cookieCount += autoClickerCount;
+  cookieCountDisplay.textContent = cookieCount + " Jers";
+  for (let i = 0; i < Math.min(autoClickerCount,80); i++) {
+    createRandomParticle()
+  }
+}, 1000);
 
 function getRandomSize() {
   return Math.floor(Math.random() * 10) + 2; // Random size between 2px and 12px
