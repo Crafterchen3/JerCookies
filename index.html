@@ -15,17 +15,18 @@
     <source src="Rich_Amiri_-_One_Call.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
-  
+
   <script>
     window.addEventListener('DOMContentLoaded', (event) => {
       var backgroundMusic = document.getElementById('background-music');
       if (backgroundMusic) {
         setInterval(() => {
+          backgroundMusic.volume = 0.4
             backgroundMusic.play().catch(error => {
                       console.error('Failed to start background music:', error);
                     });
         },30)
-        
+
       }
     });
   </script>
