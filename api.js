@@ -13,10 +13,10 @@ cookieButton.addEventListener('click', (event) => {
   cookieCountDisplay.textContent = cookieCount + " Jers";
 });
 
-buyAutoClickerButton.addEventListener('click', () => {
-  if (cookieCount >= 100) {
-    cookieCount -= 100;
-    autoClickerCount++;
+function buyAutoClicker(num){
+  if (cookieCount >= 100*num) {
+    cookieCount -= 100*num;
+    autoClickerCount += num;
     cookieCountDisplay.textContent = cookieCount + " Jers";
     autoClickerCountDisplay.textContent = autoClickerCount;
   } else {
@@ -25,7 +25,12 @@ buyAutoClickerButton.addEventListener('click', () => {
       cookieButton.style.backgroundImage = "url(\"Jer.png\")"
     }, 400)
   }
-});
+}
+
+function buyAutoClickerMax(){
+  var max = Math.floor(cookieCount/100)
+  buyAutoClicker(max)
+}
 
 function createParticle(x,y) {
   const container = document.querySelector('.body');
