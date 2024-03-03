@@ -1,5 +1,7 @@
-
-html { overflow: hidden; background: #222; }
+html {
+  overflow: hidden;
+  background: #222;
+}
 
 
 body {
@@ -20,7 +22,7 @@ body {
   text-align: center;
 }
 
-.status{
+.status {
   position: relative;
   border: 5px solid white;
   color: white;
@@ -30,7 +32,7 @@ body {
   font-family: 'Michroma'
 }
 
-.cookieButton{
+.cookieButton {
   z-index: 1;
   display: flex;
   position: relative;
@@ -44,13 +46,13 @@ body {
   width: 400px;
   height: 400px;
   transition: all 300ms;
-  
+
 }
 
-.cookieButton:hover{
+.cookieButton:hover {
   width: 410px;
   height: 410px;
-  
+
 }
 
 button {
@@ -58,7 +60,31 @@ button {
 }
 
 
+.upgrade {
+  position: relative;
+  display: flexbox;
+  border: 5px #ed8d8d solid;
+  background-color: #8F7070;
+  border-radius: 20px;
+  width: 200px;
+  align-self: center;
+}
 
+.upgrade_stats {
+  display: flex;
+  width: 100%;
+}
+
+h3.upgrade_stats {
+  margin-left: 10px;
+}
+
+p.upgrade_stats {
+  text-align: right;
+  width: max-content;
+  right: 10px;
+  font-weight: bo;
+}
 
 
 .particle {
@@ -73,15 +99,34 @@ button {
   pointer-events: none;
   animation: particle-animation 5s linear infinite;
 }
+
 @keyframes particle-animation {
   0% {
-      transform: translateY(0) rotate(0deg);
+    transform: translateY(0) rotate(0deg);
   }
+
   10% {
     opacity: 1;
   }
+
   100% {
-      transform: translateY(-500px) rotate(360deg);
-      opacity: 0;
+    transform: translateY(-500px) rotate(360deg);
+    opacity: 0;
   }
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
 }

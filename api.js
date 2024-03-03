@@ -1,11 +1,11 @@
 let cookieCount = 0;
 let autoClickerCount = 0;
 
+const auraParticles = ["particle2.png","autistic.png"]
 const cookieButton = document.getElementById('cookieButton');
 const cookieCountDisplay = document.getElementById('cookieCount');
 const autoClickerCountDisplay = document.getElementById('autoClickerCount');
 const buyAutoClickerButton = document.getElementById('buyAutoClicker');
-
 
 cookieButton.addEventListener('click', (event) => {
   createParticle(event.clientX,event.clientY)
@@ -39,6 +39,11 @@ function createParticle(x,y) {
   }, 5000);
 }
 
+function getRandomImage(){
+  index = Math.floor(Math.random()*1.9)
+  return auraParticles[index]
+}
+
 function createRandomParticle() {
   const container = document.querySelector('.body');
   const particle = document.createElement('div');
@@ -48,7 +53,7 @@ function createRandomParticle() {
   particle.style.left = x - container.getBoundingClientRect().left + 'px';
   particle.style.top = y - container.getBoundingClientRect().top + 'px';
   particle.style.zIndex = 0
-  particle.style.backgroundImage = "url(\"particle2.png\")"
+  particle.style.backgroundImage = "url(\""+getRandomImage()+"\")"
   particle.style.opacity = 0
   container.insertBefore(particle,document.getElementsByClassName("container")[0]);
   setTimeout(() => {
